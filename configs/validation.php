@@ -1,4 +1,24 @@
 <?php
+/**
+ * format:
+ *     'module_1' =>
+ *         'field_1' =>
+ *             'type' => 'numeric / alphanumeric',
+ *             'required' => TRUE / FALSE,
+ *             'min' => 'minimum string length',
+ *             'max' => 'maximum string length',
+ *         'field_2' =>
+ *             'type' => 'numeric / alphanumeric',
+ *             'required' => TRUE / FALSE,
+ *             'min' => 'minimum string length',
+ *             'max' => 'maximum string length',
+ *     'module_2' =>
+ *         'field_1' =>
+ *             'type' => 'numeric / alphanumeric',
+ *             'required' => TRUE / FALSE,
+ *             'min' => 'minimum string length',
+ *             'max' => 'maximum string length',
+ */
 $form_rules = array(
     'authorization' => array(
         'user_id' => array(
@@ -7,11 +27,11 @@ $form_rules = array(
             'min' => 1,
             'max' => 10,
         ),
-        'session' => array(
+        'token' => array(
             'type' => 'alphanumeric',
             'required' => TRUE,
-            'min' => 0,
-            'max' => 40,
+            'min' => 80,
+            'max' => 80,
         ),
     ),
     'standard' => array(

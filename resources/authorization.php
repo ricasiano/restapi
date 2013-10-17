@@ -11,7 +11,7 @@ class Authorization extends \RESTAPI\Loader {
         echo 'signed up';
     }
     
-    public function get() {
+    public function login() {
         $this->authentication->digest();
     }
     

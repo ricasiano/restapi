@@ -60,8 +60,6 @@ class Model {
         $this->close();
         if (method_exists($result, 'free'))
         $result->free();
-        else
-        $this->errorhandling(8002);
         return $rows;
     }
 
