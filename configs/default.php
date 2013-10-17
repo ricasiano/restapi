@@ -1,7 +1,7 @@
 <?php
 
 //define all paths first, this is in parallel with directory structure
-define('API_PATH', 'mbcmessaging');
+define('API_PATH', 'restapi');
 define('API_VERSION', 'v1');
 //index file, can be removed by htaccess, with trailing slash
 define('INDEX_FILE', '');
