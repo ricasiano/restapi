@@ -18,7 +18,7 @@ class Model {
         $this->or_like_clause = '';
         $this->order_by_clause = '';
         $this->group_by_clause = '';
-        $this->start = 0;
+        $this->offset = 0;
         $this->data = '';
         $this->fields = '';
         $this->limit = DATABASE_DEFAULT_LIMIT;

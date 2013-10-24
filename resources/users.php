@@ -20,8 +20,8 @@ class Users extends \RESTAPI\Loader implements iRestserver {
         $this->mod_users->fields = $this->formdata->fields;
         if(isset($this->formdata->limit))
         $this->mod_users->limit = $this->formdata->limit;
-        if(isset($this->formdata->start))
-        $this->mod_users->start = $this->formdata->start;
+        if(isset($this->formdata->offset))
+        $this->mod_users->offset = $this->formdata->offset;
         
         //get the data
         $data = $this->mod_users->get_users($id);

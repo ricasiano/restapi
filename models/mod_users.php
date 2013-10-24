@@ -9,7 +9,7 @@ class Mod_users extends \RESTAPI\Model {
         //for limiting and pagination of results
         $this->limit = DATABASE_DEFAULT_LIMIT;
         $this->max = DATABASE_MAX;
-        $this->start = 0;
+        $this->offset = 0;
     }
     
     public function get_users($id = '') {
@@ -19,7 +19,7 @@ class Mod_users extends \RESTAPI\Model {
         
         //execute mysql query, sorry no abstraction here :(
         if ($id == '')
-        return $this->query("select ".$this->fields." from users ORDER BY `username` LIMIT ".$this->start.", ".$this->limit);
+        return $this->query("select ".$this->fields." from users ORDER BY `username` LIMIT ".$this->offset.", ".$this->limit);
         else
         return $this->query("select ".$this->fields." from users where id = '$id' and active=1 and deleted=0");
     }

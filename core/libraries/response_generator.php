@@ -39,7 +39,25 @@ class Response_generator {
         else {
             unset($data[0]['id']);
         }
-        $json_data = json_encode($data); 
-        echo $json_data;
+        echo json_encode($this->rename_keys($data)); 
     }
+    
+    /**
+     * transforms keys from underscore to camel case
+     * 
+     * @param array $data
+     * @return array
+     */
+    private function rename_keys($data) {
+        $cleaned = array();
+        foreach ($data as $keydata => $valdata) {
+            $func = create_function('$c', 'return strtoupper($c[1]);');
+            $validate = preg_replace_callback('/_([a-z])/', $func, $keydata);
+            $rename = strtolower(substr($validate, 0, 1)) . substr($validate, 1);
+            $cleaned[$rename] = is_array($valdata) ? $this->rename_keys($valdata) : $valdata;
+        }
+        return $cleaned;
+    }
+    
+    
 }

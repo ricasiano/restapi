@@ -1,5 +1,7 @@
 <?php
 /**
+ * Form Validation config
+ * 
  * format:
  *     'module_1' =>
  *         'field_1' =>
@@ -41,7 +43,7 @@ $form_rules = array(
             'min' => 1,
             'max' => 10,
         ),
-        'start' => array(
+        'offset' => array(
             'type' => 'numeric',
             'required' => FALSE,
             'min' => 0,
