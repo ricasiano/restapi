@@ -13,10 +13,8 @@ class Form {
     public function validate($form_label, $formdata) {
         if(isset($this->form_rules[$form_label])) {
             $rules = $this->form_rules[$form_label];
-            foreach ($rules as $field_key => $field_value) {
-                if (isset($formdata->$field_key))
-                $this->apply_rules($field_value, $formdata->$field_key, $field_key);
-            }
+            foreach ($rules as $field_key => $field_value) 
+                @$this->apply_rules($field_value, $formdata->$field_key, $field_key);
         }
     }
     
@@ -69,7 +67,7 @@ class Form {
     //check if string passed exceeds max length
     private function var_max($field_label, $data, $max) {
         if(strlen($data) > $max)
-        $this->custom_error('Field '.$field_label.' exceeds maximum string length.', '');
+        $this->errorhandling->custom_error('Field '.$field_label.' exceeds maximum string length.', '');
     }
     
     //check if string passed exceeds min length
