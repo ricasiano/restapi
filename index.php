@@ -4,6 +4,7 @@
   * REST SERVER v0.1
   *
 *******************************************************/
+
 //check first PHP version for compatibility
 if (version_compare(phpversion(), '5.3.0', '<')) {
    echo 'PHP Version required is 5.3.0 or greater';
