@@ -83,8 +83,8 @@ class Loader {
         $errorhandling->generate_error($code);
     }
     
-    public function response_generator($data, $resource = '') {
+    public function response_generator($data, $resource = '', $id = null) {
         $response_generator = new \RESTAPI\libraries\Response_generator();
-        $response_generator->generate($data, $resource);
+        $response_generator->generate($data, $resource, $id);
     }
 }

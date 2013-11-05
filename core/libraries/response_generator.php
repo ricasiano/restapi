@@ -7,13 +7,13 @@ class Response_generator {
      * @param array $data
      * @param string $resource
      */
-    public function generate($data, $resource = '') {
+    public function generate($data, $resource = '', $id = null) {
         switch (RESPONSE_FORMAT) {
             case 'json':
-                $this->json_format($data, $resource);
+                $this->json_format($data, $resource, $id);
                 break;
             default:
-                $this->json_format($data, $resource);
+                $this->json_format($data, $resource, $id);
                 break;
         }
     }
@@ -24,11 +24,11 @@ class Response_generator {
      * @param array $data
      * @param string $resource
      */
-    private function json_format($data, $resource = '') {
+    private function json_format($data, $resource = '', $id = null) {
         header('Content-Type: text/json');
         $ctr = 0;
         //generate a fully qualified url for reference to data
-        if (count($data) > 1) {
+        if ($id == null) {
             foreach ($data as $json_data) {
                 $id = $json_data['id'];
                 array_shift($data[$ctr]);
@@ -37,7 +37,6 @@ class Response_generator {
             }
         }
         else {
-            unset($data[0]['id']);
         }
         echo json_encode($this->rename_keys($data)); 
     }
@@ -58,6 +57,4 @@ class Response_generator {
         }
         return $cleaned;
     }
-    
-    
 }
