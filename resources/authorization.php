@@ -28,8 +28,6 @@ class Authorization extends \RESTAPI\Loader {
                 exit;
                 break;
         }
-        
-        
     }
     
     

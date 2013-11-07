@@ -40,6 +40,7 @@ class Users extends \RESTAPI\Loader implements iRestserver {
     }
 
     public function delete($id = '') {
+        echo $id;
         echo 'Invoked DELETE';
     }
 }
